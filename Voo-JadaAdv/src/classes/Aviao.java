@@ -66,23 +66,39 @@ public class Aviao implements MeioTransporte {
         for (AssentoVoo a : assentos) {
             if (a.getClasse().equalsIgnoreCase("luxo")) {
                 contadorLuxo++;
-                if (a.getCodigo().contains("A")){
-                    System.out.print("     ");
-                }
-                if ((contadorLuxo % 4 == 0)) {
-                    System.out.print("[" + a.getCodigo() + "]\n");
+                if (a.isOcupado()){
+                    System.out.println("[XX]");
                 } else {
-                    System.out.print("[" + a.getCodigo() + "] ");
+                    if (a.getCodigo().contains("A") || a.getCodigo().contains("[XX]")){
+                        System.out.print("     ");
+                    }
+                    if ((contadorLuxo % 4 == 0)) {
+                        System.out.print("[" + a.getCodigo() + "]\n");
+                    } else {
+                        System.out.print("[" + a.getCodigo() + "] ");
+                    }
                 }
             }
 
             if (a.getClasse().equalsIgnoreCase("economico")) {
                 contadorEconomica++;
-                if ((contadorEconomica % 6 == 0)) {
-                    System.out.print("[" + a.getCodigo() + "]\n");
+                if (a.isOcupado()){
+                    System.out.println("[XX]");
                 } else {
-                    System.out.print("[" + a.getCodigo() + "] ");
+                    if ((contadorEconomica % 6 == 0)) {
+                        System.out.print("[" + a.getCodigo() + "]\n");
+                    } else {
+                        System.out.print("[" + a.getCodigo() + "] ");
+                    }
                 }
+            }
+
+            if(contadorLuxo % 2 == 0 && contadorLuxo % 4 != 0){
+                System.out.print("|| ");
+            }
+
+            if (contadorEconomica % 3 == 0 && contadorEconomica % 6 != 0){
+                System.out.print("|| ");
             }
         }
     }
