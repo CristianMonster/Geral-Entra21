@@ -11,7 +11,7 @@ public class Aviao implements MeioTransporte {
         for (int i = 1; i <= linhasCadeirasLuxos; i++) {
             for (int j = 0; j < 4; j++) {
                 AssentoVoo a = new AssentoVoo();
-                a.setClasse("Luxo");
+                a.setClasse(ClasseAssentoVoo.LUXO);
                 a.setCodigo(listaLuxo[j] + i);
                 assentos.add(a);
             }
@@ -21,7 +21,7 @@ public class Aviao implements MeioTransporte {
         for (int i = 1; i <= linhasCadeirasEconomicas; i++) {
             for (int j = 0; j < listaEconomica.length; j++) {
                 AssentoVoo a = new AssentoVoo();
-                a.setClasse("Economico");
+                a.setClasse(ClasseAssentoVoo.ECONOMICA);
                 a.setCodigo(listaEconomica[j] + i);
                 assentos.add(a);
             }
@@ -64,12 +64,12 @@ public class Aviao implements MeioTransporte {
         int contadorLuxo = 0;
         int contadorEconomica = 0;
         for (AssentoVoo a : assentos) {
-            if (a.getClasse().equalsIgnoreCase("luxo")) {
+            if (a.getClasse().equals(ClasseAssentoVoo.LUXO)) {
                 contadorLuxo++;
                 if (a.isOcupado()){
                     System.out.println("[XX]");
                 } else {
-                    if (a.getCodigo().contains("A") || a.getCodigo().contains("[XX]")){
+                    if (a.getCodigo().contains("A")){
                         System.out.print("     ");
                     }
                     if ((contadorLuxo % 4 == 0)) {
@@ -80,7 +80,7 @@ public class Aviao implements MeioTransporte {
                 }
             }
 
-            if (a.getClasse().equalsIgnoreCase("economico")) {
+            if (a.getClasse().equals(ClasseAssentoVoo.ECONOMICA)) {
                 contadorEconomica++;
                 if (a.isOcupado()){
                     System.out.println("[XX]");
@@ -115,10 +115,10 @@ public class Aviao implements MeioTransporte {
         return null;
     }
 
-    public Assento getAssento(String assento, String classe) {
+    public Assento getAssento(String assento, ClasseAssentoVoo classe) {
         //se o código do assento for igual o que ele esta procurando retorna o assento
         for (AssentoVoo a : assentos) {
-            if (a.getCodigo().equalsIgnoreCase(assento) && a.getClasse().equalsIgnoreCase(classe)) {
+            if (a.getCodigo().equalsIgnoreCase(assento) && a.getClasse().equals(classe)) {
                 return a; // retorna a lista de assentos
             }
         }

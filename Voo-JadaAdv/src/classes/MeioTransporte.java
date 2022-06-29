@@ -5,7 +5,5 @@ public interface MeioTransporte {
     int quantidadeLivre();
     void mostrarAssentos();
 
-    Assento getAssento(String assento, String classe);
-
     Assento getAssento(String assentos);
 }

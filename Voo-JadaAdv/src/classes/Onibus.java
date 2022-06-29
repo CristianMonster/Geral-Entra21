@@ -97,11 +97,6 @@ public class Onibus implements MeioTransporte {
     }
 
     @Override
-    public Assento getAssento(String assento, String classe) {
-        return null;
-    }
-
-    @Override
     public Assento getAssento(String assento) {
         //se o código do assento for igual o que ele esta procurando retorna o assento
         for (AssentoOnibus a : assentos) {
