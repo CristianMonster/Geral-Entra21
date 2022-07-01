@@ -12,7 +12,7 @@ public enum NaipeEnum {
         this.naipe = naipe;
     }
 
-    //GATTER
+    //----------------------------Gatters and setters----------------------------
     public String getNaipe() {
         return naipe;
     }

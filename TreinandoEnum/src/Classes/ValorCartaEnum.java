@@ -21,7 +21,7 @@ public enum ValorCartaEnum {
         this.descricao = descricao;
     }
 
-    //GATTER
+    //----------------------------Gatters and setters----------------------------
     public String getDescricao() {
         return descricao;
     }
