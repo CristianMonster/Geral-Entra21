@@ -1,3 +1,5 @@
+import classes.EMenu;
+import classes.EMenuItem;
 import classes.avaliacao.Avaliacao;
 import classes.guardados.Estante;
 import classes.itens.DVD;
@@ -13,36 +15,29 @@ public class Main {
         Estante e = new Estante(5);
         boolean loop = true;
         while (loop) {
-            int opcao = escolherOpcao();
+            EMenu opcao = escolherOpcao();
             switch (opcao) {
-                case 0: loop = false;
-                    break;
-                case 1: adicionarItem(e);
-                    break;
-                case 2: buscarItemETratarRetorno(e);
-                    break;
-                case 3: removerItem(e);
-                    break;
-                case 4: mostarItens(e);
-                    break;
+                case SAIR -> loop = false;
+                case ADICIONAR_ITEM -> adicionarItem(e);
+                case BUSCAR_ITEM -> buscarItemETratarRetorno(e);
+                case REMOVER_ITEM -> removerItem(e);
+                case MOSTRAR_ITEM -> mostarItens(e);
             }
         }
         System.out.println("Programa finalizado!");
     }
 
-    public static int escolherOpcao() {
-        int escolha = -1;
-        while (escolha < 0 || escolha > 4) {
+    public static EMenu escolherOpcao() {
+        EMenu escolha = null;
+        while (escolha == null) {
             System.out.println("Selecione uma opção");
-            System.out.println("(1) - Adicionar item na estante");
-            System.out.println("(2) - Buscar item na estante");
-            System.out.println("(3) - Remover item da estante");
-            System.out.println("(4) - Ver itens na estante");
-            System.out.println("(0) - Sair");
-            escolha = in.nextInt();
+            for (EMenu e : EMenu.values()) {
+                System.out.printf("[%d] - %s\n", e.getValorOpcao(), e.getDescricao());
+            }
+            escolha = EMenu.getByValorOpcao(in.nextInt());
             in.nextLine();
-            if (escolha < 0 || escolha > 4) {
-                System.err.println("Selecione uma opção válida!");
+            if (escolha == null) {
+                System.out.println("Opção Inválida!");
             }
         }
         return escolha;
@@ -75,26 +70,7 @@ public class Main {
             System.out.print("informe o valor: R$");
             i.setValor(in.nextDouble());
             in.nextLine();
-            if (i instanceof Livro) {
-                Livro l = ((Livro) i);
-                System.out.print("Informe o autor: ");
-                l.setAutor(in.nextLine());
-                System.out.print("Informe a quantidade de páginas: ");
-                l.setQtdePaginas(in.nextInt());
-                System.out.print("Informe o ano de publicação: ");
-                l.setAnoPublicacao(in.nextInt());
-                System.out.println("Informe a edição: ");
-                l.setEdicao(in.nextInt());
-                in.nextLine();
-            } else {
-                DVD dvd = ((DVD) i);
-                System.out.println("Informe o diretor: ");
-                dvd.setDiretor(in.nextLine());
-                System.out.println("Informe o ano de lançamento: ");
-                dvd.setAnoLancamento(in.nextInt());
-                System.out.println("Informe a duração");
-                dvd.setDuracao(in.nextDouble());
-            }
+            i.montarDetalhes(in);
             if (!e.adicionarItem(i)) {
                 System.err.println("Não foi possível adicionar o item na estante!");
             } else {
@@ -109,62 +85,60 @@ public class Main {
         if (i == null) {
             System.err.println("O título buscado não existe na estante!");
         } else {
-            int escolha = -1;
-            while (escolha < 0 || escolha > 2) {
-                System.out.println(i.getTitulo()+ " encontrado! Ações disponíveis: ");
-                System.out.println("(1) - Ver avaliações");
-                System.out.println("(2) - Avaliar");
-                System.out.println("(0) - Voltar");
-                escolha = in.nextInt();
-                if (escolha < 0 || escolha > 2) {
+            EMenuItem escolha = null;
+            while (escolha == null) {
+                System.out.println("Selecione uma Opção");
+                for (EMenuItem item : EMenuItem.values()) {
+                    System.out.printf("[%d] - %s\n", item.getValorOpcao(), item.getDescricao());
+                }
+                escolha = EMenuItem.getByValorOpcao(in.nextInt());
+                if (escolha == null) {
                     System.err.println("Selecione uma opção válida");
                 }
             }
             in.nextLine();
             switch (escolha) {
-                case 0:
-                    System.out.println("Retornando...");
-                    break;
-                case 1:
-                    mostarAvaliacoes(i);
-                    break;
-                case 2:
-                    i.avaliar();
-                    break;
+                case VOLTAR -> System.out.println("Retornando...");
+                case VER_AVALIACAO -> mostarAvaliacoes(i);
+                case AVALIAR_ITEM -> i.avaliar();
+                case MOSTRAR_DETALHES -> {
+                    System.out.println("Título: " + i.getTitulo());
+                    System.out.println("Gênero: " + i.getTitulo());
+                    i.mostrarDetalhes();
+                    System.out.printf("Valor: R$%.2f", i.getValor());
+                }
+                default -> System.out.println("Não implementado!");
             }
         }
     }
 
     public static void mostarAvaliacoes(Item i) {
-        for (Avaliacao a : i.getAvaliacoes()) {
-            if (a != null) {
-                System.out.println("Autor: "+a.getNome());
-                System.out.println("avaliação: "+a.getRating());
-                System.out.println("Comentário: ");
-                System.out.println(a.getFeedback());
-                System.out.println("--------------------");
-            }
-        }
-        System.out.println("Classificação final: "+i.getTotalRating());
+        i.getAvaliacoes().forEach(a -> {
+            System.out.println("Autor: " + a.getNome());
+            System.out.println("avaliação: " + a.getRating());
+            System.out.println("Comentário: ");
+            System.out.println(a.getFeedback());
+            System.out.println("--------------------");
+        });
+        System.out.println("Classificação final: " + i.getTotalRating());
     }
 
     public static void removerItem(Estante e) {
         if (e.quantidadeItens() == 0) {
             System.err.println("Não é possível remover itens de uma estante vazia!");
         } else {
-            int posicao = -1;
-            while(posicao < 0 || posicao > e.getCapMaxima()) {
+            int posicao;
+            do {
                 System.out.print("Informe a posição do item para remover: ");
                 posicao = in.nextInt();
-                if (posicao < 0 || posicao > e.getCapMaxima()) {
+                if (posicao < 0 || posicao > e.quantidadeItens()) {
                     System.err.println("Selecione uma opção válida!");
                 }
-            }
+            } while (posicao < 0 || posicao > e.quantidadeItens());
+
             in.nextLine();
             Item i = e.removerItem(posicao);
-            if (i != null) {
-                System.out.println("Item "+i.getTitulo()+" removido!");
-            }
+            System.out.println("Item " + i.getTitulo() + " removido!");
         }
     }
 
@@ -172,11 +146,9 @@ public class Main {
         if (e.quantidadeItens() == 0) {
             System.out.println("Estante vazia!");
         } else {
-            for (int i = 0; i < e.getCapMaxima(); i++) {
+            for (int i = 0; i < e.getItens().size(); i++) {
                 Item item = e.getItens().get(i);
-                if (item != null) {
-                    System.out.println("[" + i + "] " + item.getTitulo() + " (" + item.getGenero() + ")");
-                }
+                System.out.println("[" + i + "] " + item.getTitulo() + " (" + item.getGenero() + ")");
             }
         }
     }

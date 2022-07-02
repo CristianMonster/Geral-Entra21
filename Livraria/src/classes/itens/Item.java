@@ -26,8 +26,13 @@ public abstract class Item {
     }
 
     public double getTotalRating() {
-        return this.avaliacoes.stream().mapToDouble(Avaliacao::getRating).sum()/this.avaliacoes.size();//map trocando o tipo do objeto, vai de avaliacao para double
+        Double valor = this.avaliacoes.stream().mapToDouble(Avaliacao::getRating).sum()/this.avaliacoes.size();//map trocando o tipo do objeto, vai de avaliacao para double
+        return valor.isNaN() ? 0 : valor; // operador ternario
     }
+
+    public abstract void montarDetalhes(Scanner in);
+
+    public abstract void mostrarDetalhes();
 
     // GETTERS & SETTERS
 
