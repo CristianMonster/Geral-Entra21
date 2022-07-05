@@ -5,7 +5,8 @@ public enum EMenu {
     ADICIONAR_ITEM(1, "Adicionar item a estante"),
     BUSCAR_ITEM(2, "Buscar Item"),
     REMOVER_ITEM(3, "Remover item da estante"),
-    MOSTRAR_ITEM(4, "Mostrar itens na estante");
+    MOSTRAR_ITEM(4, "Mostrar itens na estante"),
+    ADICIONAR_ESTANTE(5, "Adicionar uma esatnte");
 
     private int valorOpcao;
     private String descricao;

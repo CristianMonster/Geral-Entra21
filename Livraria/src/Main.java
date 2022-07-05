@@ -6,13 +6,15 @@ import classes.itens.DVD;
 import classes.itens.Item;
 import classes.itens.Livro;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Estante e = new Estante(5);
+        HashMap<String, Estante> estante = new HashMap<>();
+        Estante e = new Estante(999999);
         boolean loop = true;
         while (loop) {
             EMenu opcao = escolherOpcao();
@@ -22,6 +24,7 @@ public class Main {
                 case BUSCAR_ITEM -> buscarItemETratarRetorno(e);
                 case REMOVER_ITEM -> removerItem(e);
                 case MOSTRAR_ITEM -> mostarItens(e);
+                case ADICIONAR_ESTANTE -> adicionarEstante(estante);
             }
         }
         System.out.println("Programa finalizado!");
@@ -150,6 +153,20 @@ public class Main {
                 Item item = e.getItens().get(i);
                 System.out.println("[" + i + "] " + item.getTitulo() + " (" + item.getGenero() + ")");
             }
+        }
+    }
+
+    public static void adicionarEstante (HashMap estante){
+        System.out.println("Informe o Gênero da sua estante: ");
+        String genero = in.nextLine();
+        if (estante.containsKey(genero)){
+            System.out.println("Estante com esse gênero ja adicionada!");
+        } else {
+            System.out.println("Informe a capacidade maxima da sua estante: ");
+            int capacidade = in.nextInt();
+            in.nextLine();
+            Estante e = new Estante(capacidade);
+            estante.put(genero, e);
         }
     }
 }
