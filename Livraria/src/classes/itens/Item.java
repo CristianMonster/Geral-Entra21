@@ -4,7 +4,6 @@ import classes.avaliacao.Avaliacao;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class Item {
     private String titulo;
