@@ -50,7 +50,7 @@ public class Livro extends Item{
         this.setQtdePaginas(in.nextInt());
         System.out.print("Informe o ano de publicação: ");
         this.setAnoPublicacao(in.nextInt());
-        System.out.println("Informe a edição: ");
+        System.out.print("Informe a edição: ");
         this.setEdicao(in.nextInt());
         in.nextLine();
     }

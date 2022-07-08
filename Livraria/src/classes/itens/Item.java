@@ -1,11 +1,13 @@
 package classes.itens;
 
+import classes.IMenu;
 import classes.avaliacao.Avaliacao;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Item {
+public abstract class Item implements IMenu {
     private String titulo;
     private String genero;
     private double valor;
@@ -16,17 +18,18 @@ public abstract class Item {
         Avaliacao a = new Avaliacao();
         System.out.print("Informe o nome do avaliador: ");
         a.setNome(in.nextLine());
-        System.out.println("Informe uma nota de 0 a 10: ");
+        System.out.print("Informe uma nota de 0 a 10: ");
         a.setRating(in.nextDouble());
         in.nextLine();
         System.out.print("Informe algum feedback (opcional): ");
         a.setFeedback(in.nextLine());
         avaliacoes.add(a);;
+
     }
 
     public double getTotalRating() {
-        Double valor = this.avaliacoes.stream().mapToDouble(Avaliacao::getRating).sum()/this.avaliacoes.size();//map trocando o tipo do objeto, vai de avaliacao para double
-        return valor.isNaN() ? 0 : valor; // operador ternario
+        double valor = this.avaliacoes.stream().mapToDouble(Avaliacao::getRating).sum()/this.avaliacoes.size();//map trocando o tipo do objeto, vai de avaliacao para double
+        return Double.isNaN(valor) ? 0 : valor; // operador ternario
     }
 
     public abstract void montarDetalhes(Scanner in);

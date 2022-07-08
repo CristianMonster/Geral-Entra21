@@ -1,6 +1,6 @@
-import javax.swing.*;
-import java.security.Key;
-import java.sql.Array;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import classes.*;
@@ -10,7 +10,7 @@ public class Main {
     public static Scanner ler = new Scanner(System.in);
 
     public static void main(String[] args) {
-        exe07();
+        exe09();
     }
 
     //---------------------ARRAYLIST---------------------
@@ -279,5 +279,42 @@ public class Main {
             }
             System.out.println("");
         } // para esse exercicio eu poderia ter criado varias funções separadas e chamar no switch, ex case 1: mostrarListaCarros() - public statis void mostrarListaCarros(){}
+    }
+
+    public static void exe08() {
+        LocalDateTime time = LocalDateTime.now();
+
+        System.out.println(time.getYear());
+        System.out.println(time.getMonthValue());
+        System.out.println(time.getDayOfMonth());
+        System.out.println(time.getHour());
+        System.out.println(time.getMinute());
+        System.out.println(time.getSecond());
+        System.out.println(time.getDayOfYear());
+        System.out.println(time.toLocalDate().isLeapYear()); //tirando a parte de hora, trabalhando só com a data e informa se o ano é bissexto ou não
+        System.out.println(time);
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE));
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        System.out.println();
+
+        LocalDateTime inicio = LocalDateTime.of(2022, 7, 7, 8, 43, 17);
+        LocalDateTime fim = LocalDateTime.of(2022, 7, 7, 15, 03, 21);
+
+        Duration bet = Duration.between(inicio, fim).minusHours(1).minusMinutes(30);
+        System.out.printf("%d:%d:%d\n", bet.toHoursPart(), bet.toMinutesPart(), bet.toSecondsPart());
+    }
+
+    public static void exe09() {
+        while (true) {
+            try {
+                System.out.print("Informe um numero: ");
+                System.out.println(ler.nextInt());
+            } catch (Exception e){
+                ler.nextLine();
+                System.err.println("Não é um numero!");
+            } finally {
+
+            }
+        }
     }
 }

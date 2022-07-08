@@ -1,29 +1,29 @@
 package classes;
 
-public enum EMenuItem implements IMenu{
-    VOLTAR(0 , "Voltar"),
-    VER_AVALIACAO(1, "Ver Avaliacoes"),
-    AVALIAR_ITEM(2, "Avaliar"),
-    MOSTRAR_DETALHES(3, "Mostrar Detalhes");
+public enum ETipoLanche {
+    X_SALADA(1, "X-Salada"),
+    X_BURGUER(2, "X-Burguer"),
+    MISTO_QUENTE(3, "Misto Quente"),
+    HOT_DOG(4, "Hot Dog"),
+    MINI_PIZZA(5, "Mini Pizza"),
+    PIZZA(6, "Pizza");
 
     private int valorOpcao;
     private String descricao;
 
-    EMenuItem(int valorOpcao, String descricao){
+    ETipoLanche(int valorOpcao, String descricao){
         this.valorOpcao = valorOpcao;
         this.descricao = descricao;
     }
 
-    public static EMenuItem getByValorOpcao(int valorOpcao){
-        for(EMenuItem e : EMenuItem.values()){
-            if (e.getValorOpcao() == valorOpcao){
+    public static ETipoLanche getByValorOpcao(int escolha){
+        for (ETipoLanche e : ETipoLanche.values()){
+            if (e.getValorOpcao() == escolha){
                 return e;
             }
         }
-        throw new RuntimeException();
+        return null;
     }
-
-    //GETTERS AND SETTERS
 
     public int getValorOpcao() {
         return valorOpcao;

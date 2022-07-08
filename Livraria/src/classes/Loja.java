@@ -7,7 +7,7 @@ public class Loja {
     private HashMap<String, Estante> estantes = new HashMap<>();
 
     //GETTER AND SETTER
-    public HashMap<String, Estante> getEstante() {
+    public HashMap<String, Estante> getEstantes() {
         return estantes;
     }
 
