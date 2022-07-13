@@ -25,41 +25,39 @@ public class Main {
 
     private static Lanche montarLanche() {
         Lanche lanche = null;
-        while (lanche == null) {
-            ETipoLanche opcao = null;
-            switch (opcao){
-                case X_SALADA -> lanche = new XSalada();
-                case X_BURGUER -> lanche = new XBurguer();
-                case MISTO_QUENTE -> lanche = new MistoQuente();
-                case HOT_DOG -> lanche = new HotDog();
-                case MINI_PIZZA -> lanche = new MiniPizza();
-                case PIZZA -> lanche = new Pizza();
-                default -> System.err.println("Escolha uma opção válida!");
-            }
-            System.out.println("-MENU: Escolha uma opção-"); // fazer o mesmo metodo escolher pção do da livraria
-
-            int escolha = 0;
-            try {
-                escolha = in.nextInt();
-            } catch (Exception e) {
-                System.out.println("Escolha um Lanche Válido!");
-            }
-            in.nextLine();
-            switch (escolha) {
-                case 1 -> lanche = new XSalada();
-                case 2 -> lanche = new XBurguer();
-                case 3 -> lanche = new MistoQuente();
-                case 4 -> lanche = new HotDog();
-                case 5 -> lanche = new MiniPizza();
-                case 6 -> lanche = new Pizza();
-                default -> System.err.println("Escolha uma opção válida!");
-            }
+        ETipoLanche opcao = escolherOpcao();
+        switch (opcao) {
+            case X_SALADA -> lanche = new XSalada();
+            case X_BURGUER -> lanche = new XBurguer();
+            case MISTO_QUENTE -> lanche = new MistoQuente();
+            case HOT_DOG -> lanche = new HotDog();
+            case MINI_PIZZA -> lanche = new MiniPizza();
+            case PIZZA -> lanche = new Pizza();
+            default -> System.err.println("Escolha uma opção válida!");
         }
         lanche.montarDetalhesLanche(in);
         System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
         lanche.setValor(in.nextDouble());
         in.nextLine();
         return lanche;
+    }
+
+    public static ETipoLanche escolherOpcao() {
+        ETipoLanche opcao = null;
+        while (opcao == null) {
+            try {
+                System.out.println("--- MENU ---");
+                for (ETipoLanche lanche : ETipoLanche.values()) {
+                    System.out.println("[" + lanche.getValorOpcao() + "] - " + lanche.getDescricao());
+                }
+                opcao = ETipoLanche.getByValorOpcao(in.nextInt());
+            } catch (Exception e) {
+                System.err.println("Selecione uma opção válida!");
+            } finally {
+                in.nextLine();
+            }
+        }
+        return opcao;
     }
 }
 
