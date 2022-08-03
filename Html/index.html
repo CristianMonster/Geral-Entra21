@@ -1,79 +1,82 @@
 <!DOCTYPE html>
-<html lang="pt-br"> <!-- html:5 -->
-    <!--HTML INICIAL-->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Primeira página web"> <!--Descrição que aparece quando você pesquisa o site, até 160 caracteres-->
-        <meta name="keyword" content="HTML, CSS, JS"> <!--Palavras chaves-->
-        <meta name="author" content="Monster">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Pegando a largura do dispositivo que o usuário está acessando-->
-        
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="estilo.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <h3>Títulos</h3>
+        <ul id="menu">
+            <li>
+                <a href="h.html">Títulos</a>
+            </li>
+            <li>
+                <a href="p.html">Paragrafos</a>
+            </li>
+            <li>
+                <a href="img.html">Imagens</a>
+            </li>
+            <li>
+                <a href="a.html">Links</a>
+            </li>
+            <li>
+                <a href="listas.html">Listas</a>
+            </li>
+            <li>
+                <a href="tabelas.html">Tabelas</a>
+            </li>
+            <li>
+                <a href="form.html">Formulários</a>
+            </li>
+            <li>
+                <a href="iframe.html">IFrame</a>
+            </li>
+            <li>
+                <a href="brincando.html">Epilepsia</a>
+            </li>
+        </ul>
+    </header>
+</body>
 
-        <title>Página para teste</title>
-    </head>
-    <body>
-        <header>
-            <h3>Página teste</h3> <!--vai até o h6-->
-  
-            <p>
-                Teste com parágrafo
-            </p>
-  
-            <img width="150px" height="80px" src="imagens/veioquerido.jpeg"/> <!--Adiciona imagem-->
+<style>
+    body {
+        text-align: center;
+        align-items: center;
+    }
 
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/a" target="_blank">Link de referencia</a><!--Adiciona link, target faz ele abrir uma nova guia-->
+    #menu {
+        list-style: none;
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-top: 5px;
+    }
 
-            <h4>Tarefas Diárias</h4>
-            
-            <ol type="1" reversed start="102">
-                <li>Lavar a louca</li>
-                <li>Trabalhar</li>
-                <li>Estudar </li>
-                <ul>
-                    <li>Java</li>
-                    <li>MySQL</li>
-                </ul>
-            </ol>
+    #menu li {
+        margin-right: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-top: 5px;
+    }
 
-            <ul>
-                <li>A</li>
-                <li>B</li>
-                <li>C</li>
-            </ul>
+    #menu a {
+        text-decoration: none;
+        color: black;
+    }
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ano</th>
-                        <th>Mês</th>
-                        <th>Dia</th> 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1009</td>
-                        <td>Jana</td>
-                        <td style="text-align: center;">02</td>
-                    </tr>
-                    <tr>
-                        <td>1209</td>
-                        <td>Feva</td>
-                        <td style="text-align: center;">01</td>
-                    </tr>
-                </tbody>
-                <tr>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td style="text-align: center;"><small>Texto com a menor letra que o estilo permitir</small></td>
-                    </tr>    
-                </tfoot>
-            </table>   
-            
-        </header>
-    </body>
+    #menu a:hover{
+        color: rgb(0, 110, 255);
+        font-size: 1.2em;
+    }
 
+    #menu li:hover {
+        background-color: lightgray;
+        color: white;
+    }
+</style>
 </html>
