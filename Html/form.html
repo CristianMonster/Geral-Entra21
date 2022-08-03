@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <main>
+    <h4>Página com formulario</h4>
+        <div>
+            <form id="primeiro-form"> <!--Formulário, seus inputs e labels-->
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                <br>   
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" placeholder="seuemailaqui@dominio.com" required>
+                <br>
+                <label for="senha">Senha: </label>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <br>
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                <br>
+                <label for="radio">Tem rádio?</label>
+                <input type="radio" id="radio" name="radiobutton">
+                <br>
+                <label for="realizado">Tem certeza?</label>
+                <input type="checkbox" id="realizado" nome="realizado" value="1">
+                <br>
+                <input type="submit" nome="enviar" value="Enviar">
+                <input type="reset" nome="limpar" value="Limpar">
+                <input type="button" nome="botao" value="Cancelar"> 
+                <br>
+                <input type="number" step="0.01" name="valor" placeholder="Valor">
+                <input type="data" name="data" placeholder="Data">
+                <input type="time" name="hora" placeholder="Hora">
+                <input type="color" name="cor" placeholder="Cor">
+            </form>
+        </div>
+   </main> 
+</body>
+</html>
