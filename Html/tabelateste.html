@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="tabela-estilizada">
+        <thead>
+            <tr>
+                <th>Moths</th>
+                <th>Savings</th>
+                <th>Links</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+                <td class="edit-cell"><a href="#">View</td>
+            </tr>
+            <tr class="linha-pintada">
+                <td>Febryary</td>
+                <td>$120</td>
+                <td class="edit-cell"><a href="#">View</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: right; padding: 4px 4px; font-size: 12px;"><small>$220</small></td>
+            </tr>    
+        </tfoot>
+    </table>
+</body>
+
+<style>
+    .tabela-estilizada {
+        border-collapse: collapse;
+        width: 70%;
+        margin: 0 15%;
+    }
+
+    .tabela-estilizada th, .tabela-estilizada td, tfoot tr td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .tabela-estilizada tr:hover {
+        background-color: #ddd;
+    }
+
+    .tabela-estilizada th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .linha-pintada {
+        background-color: #f2f2f2;
+    } 
+
+    .tabela-estilizada td:first-child {
+    width: 50%;
+    }
+
+    .tabela-estilizada td:nth-child(2) {
+        width: 40%;
+    }
+    .tabela-estilizada td:nth-child(3) {
+        width: 10%;
+    }
+
+    .edit-cell a {
+    text-decoration: none;
+    background-color: rgb(55, 100, 212);
+    padding: 2px 4px;
+    margin: 2px 0;
+    display: inline-block;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+
+.edit-cell a:hover {
+    background-color: rgb(27, 82, 212);
+}
+
+</style>
+</html>

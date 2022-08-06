@@ -4,43 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    
     <title>Document</title>
 </head>
 <body>
     <main>
-        <h3>Páginas com tabelas</h3>
         <div id="tabelas">
-            <table>
-                <caption style="text-align: center;">Titulo da tabela</caption>
+            <table class="contained">
+                <caption><h2>Titulo da tabela</h2></caption>
                 <thead>
                     <tr>
-                        <th>Ano</th>
-                        <th>Mês</th>
-                        <th>Dia</th> 
+                        <th>Mêses</th>
+                        <th>Savings</th>
+                        <th>Visualization</th> 
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1009</td>
-                        <td>Jana</td>
-                        <td style="text-align: center;">02</td>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td class="edit-cell"><a href="#">View</td>
                     </tr>
                     <tr>
-                        <td>1209</td>
-                        <td>Feva</td>
-                        <td style="text-align: center;">01</td>
+                        <td>February</td>
+                        <td>$120</td>
+                        <td class="edit-cell"><a href="#">View</td>
                     </tr>
                 </tbody>
                 <tr>
                 <tfoot>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td style="text-align: center;"><small>Texto com a menor letra que o estilo permitir</small></td>
+                    <tr class="sum">
+                        <td colspan="3"><small>$220</small></td>
                     </tr>    
                 </tfoot>
             </table>
        </div>
     </main>
 </body>
+
+<style>
+    /*deixar a beira da tabela redonda*/
+     
+    
+
+</style>
 </html>

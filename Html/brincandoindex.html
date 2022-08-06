@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <nav>
+        <h3>Seu Menu Interativo!</h3>
+        </nav>
+        <ul id="menu">
+            <li>
+                <a href="h.html">Títulos</a>
+            </li>
+            <li>
+                <a href="p.html">Paragrafos</a>
+            </li>
+             <li>
+                <a href="img.html">Imagens</a>
+            </li>
+            <li>
+                <a href="a.html">Links</a>
+            </li>
+            <li>
+                <a href="listas.html">Listas</a>
+            </li>
+            <li>
+                <a href="tabelas.html">Tabelas</a>
+            </li>
+            <li>
+                <a href="form.html">Formulários</a>
+            </li>
+            <li>
+                <a href="iframe.html">IFrame</a>
+            </li>
+        </ul>
+    </header>
+    <div id="menu-lateral">
+        <a href="brincando.html"><img src="https://acegif.com/wp-content/uploads/2021/4fh5wi/pepefrg-4.gif" alt=""></a>
+        
+    </div>
+    <div id="menu-direito" >
+        <a href="brincando.html"><img src="https://acegif.com/wp-content/uploads/2021/4fh5wi/pepefrg-4.gif" alt=""></a>
+    </div>
+</body>
+
+ <style>
+    body {
+        text-align: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    #menu {
+        list-style: none;
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-top: 100px;
+    }
+
+    #menu li {
+        margin-right: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-top: 5px;
+    }
+
+    #menu a {
+        text-decoration: none;
+        color: black;
+    } 
+
+    h3:hover {
+        animation-name: cores;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite; 
+        border-radius: 8px;
+        padding: 4px 8px;
+        margin: 4px;
+    }
+
+    @keyframes cores {
+        0%{color: blue;}
+        10%{color: black;}
+        20%{color: brown;}
+        30%{color: darkcyan;}
+        40%{color: lightyellow;}
+        50%{color: rgb(249, 255, 192);}
+        60%{color: darkmagenta;}
+        70%{color: dimgray;}
+        80%{color: orange;}
+        70%{color: rgb(255, 0, 43);}
+        100%{color: green;}
+    }
+
+    p[class="white"] {
+        color: white;
+    }
+
+    nav {
+        background-color: rgb(30, 211, 75); 
+        height: 95px;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    ul a:hover {
+    text-decoration: none;
+    background-color: rgb(30, 211, 75);
+    padding: 2px 4px;
+    margin: 2px 0;
+    display: inline-block;
+    color: white;
+    border-radius: 6px;
+    }
+
+    #menu-lateral {
+        width: 300px;
+        height: 100%;
+        margin-top: 120px;
+        position: fixed;
+        margin-left: 80px;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transition: all 0.5s;
+    }
+    #menu-direito {
+        width: 300px;
+        height: 100%;
+        margin-top: 120px;
+        position: fixed;
+        margin-right: 28%;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        transition: all 0.5s;
+    }
+</style>
+</html>

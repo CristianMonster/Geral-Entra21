@@ -1,0 +1,75 @@
+body {
+    background-color: #f5f5f5;
+}
+
+* {
+    font-family: 'Poppins';
+}
+
+table.contained {
+    width: 70%;
+    margin: 0 15%;
+}
+
+table {
+    text-align: start;
+    border: 1px solid black;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-radius: 40px;
+}
+
+th {
+    text-align: start;
+    background-color: #b3b3b3;
+    padding: 8px 4px;
+}
+
+tr {
+    border-bottom: 1px solid #b3b3b3;
+}
+
+tfoot tr {
+    border-bottom: 0;
+}
+
+tfoot tr.sum td{
+    text-align: right;
+    padding: 4px 4px;
+}
+
+.edit-cell a {
+    text-decoration: none;
+    background-color: rgb(55, 100, 212);
+    padding: 2px 4px;
+    margin: 2px 0;
+    display: inline-block;
+    color: white;
+    border-radius: 6px;
+}
+
+.edit-cell a:hover {
+    background-color: rgb(27, 82, 210);
+}rgb(37, 90, 223)
+
+tbody tr.tabela td {
+    border : 1px solid black;
+}
+
+small {
+    font-size: 12px;
+}
+
+.contained td:first-child {
+    width: 50%;
+}
+
+.contained td:nth-child(2) {
+    width: 40%;
+}
+
+.contained td:nth-child(3) {
+    width: 10%;
+    text-align: center;
+}
