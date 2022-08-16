@@ -52,6 +52,10 @@ tfoot tr.sum td{
     border-radius: 6px;
 }
 
+tr .edit-cella button {
+    display: inline-block!important;
+}
+
 .edit-cell a:hover {
     background-color: rgb(27, 82, 212);
 }
@@ -65,7 +69,7 @@ small {
 }
 
 .contained td:first-child {
-    width: 50%;
+    width: 40%;
 }
 
 .contained td:nth-child(2) {
@@ -73,8 +77,58 @@ small {
 }
 
 .contained td:nth-child(3) {
-    width: 10%;
+    /* width: 10%; */
     text-align: center;
+}
+
+.btn {
+    background-color: transparent;
+    /* padding: 8px 16px; */
+    margin: 2px 0;
+    display: inline-block;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn.btn-sucess {
+    background-color: rgb(75, 191, 75);
+}
+
+.btn.btn.btn-sucess:hover {
+    background-color: rgb(48, 150, 53);
+}
+
+.btn.btn.btn-sucess:active {
+    background-color: rgb(13, 95, 17);
+}
+
+.btn.btn-warning {
+    background-color: rgb(255, 165, 0);
+}
+
+.btn.btn-warning:hover {
+    background-color: rgb(255, 140, 0);
+}
+
+.btn.btn-warning:active {
+    background-color: rgb(105, 61, 7);
+}
+
+.btn.btn-danger {
+    background-color: rgb(255, 0, 0);
+}
+
+.btn.btn-danger:hover {
+    background-color: rgb(65, 17, 33);
+}
+
+.btn.btn-danger:active {
+    background-color: rgb(238, 124, 124);
+}
+
+.w-40 {
+    width: 40%;
 }
 
 /***********INDEX***************/
