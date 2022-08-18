@@ -52,8 +52,12 @@ tfoot tr.sum td{
     border-radius: 6px;
 }
 
+tr .edit-cella {
+    text-align: end;
+}
+
 tr .edit-cella button {
-    display: inline-block!important;
+    display: inline-block;
 }
 
 .edit-cell a:hover {
@@ -78,7 +82,7 @@ small {
 
 .contained td:nth-child(3) {
     /* width: 10%; */
-    text-align: center;
+    /* text-align: center; */
 }
 
 .btn {
@@ -130,6 +134,10 @@ small {
 .w-40 {
     width: 40%;
 }
+
+/* td.edit-cella button#btn-none {
+    display: none;
+} */
 
 /***********INDEX***************/
 .text-center h3 {
