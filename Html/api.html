@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="Css/style.css"> 
+    <style>
+        #imagem {
+            display: flex;
+            justify-content: center;
+        }
+
+        #imagem img {
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 10px 5px 5px black;;
+        }
+
+        #botao {
+            display: flex;
+            justify-content: center;
+            margin-top: 7px
+            
+        }
+
+        #botao button {
+            background-color: lightcoral;
+            padding: 8px 16px; 
+            margin: 2px 0;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script type= "text/javascript">
+
+    function requestImg(text, color){
+        let url = text == null || text == "" ? "https://cataas.com/cat?json=true" : `https://cataas.com/cat/says/${text}?json=true&color=${color}`
+        let req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.onload = () => {
+            let img = document.getElementsByTagName("img")[0]
+            img.src = "https://cataas.com" +
+                JSON.parse(req.responseText).url;
+            img.onload = () => Array.from(document.getElementsByTagName("button")).forEach(btn => btn.disabled = false);
+        } 
+        Array.from(document.getElementsByTagName("button")).forEach(btn => btn.disabled = true);
+
+        req.send(null);  
+    }
+
+    function loadImg(){
+        requestImg()
+     }
+
+     function lodadImgWithText(){
+        let texto = prompt("Digite uma palavra");
+        let cor = prompt("Cor em inglish please")
+        if(texto != null){
+            requestImg(texto, cor);
+        }
+     }
+
+     function loadGif(){
+        let req = new XMLHttpRequest();
+        req.open("GET", "https://cataas.com/cat/gif", true);
+        req.onload = () => {
+            let img = document.getElementsByTagName("img")[0]
+            img.src = "https://cataas.com" +
+                JSON.parse(req.responseText).url;
+            img.onload = () => Array.from(document.getElementsByTagName("button")).forEach(btn => btn.disabled = false);
+        } 
+        Array.from(document.getElementsByTagName("button")).forEach(btn => btn.disabled = true);
+
+        req.send(null);  
+    }
+
+    </script>
+</head>
+<body>
+    <div id= "imagem">
+        <img src/>
+    </div>
+    <div id = "botao">
+        <button onclick="loadImg()">Get CAT</button>
+        <button onclick="lodadImgWithText()">Gato Frasado</button>
+        <button onclick="loadGif()">Gif de gato</button>
+    </div>
+    
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="Css/style.css"> 
+    <script type= "text/javascript">
+        function loadCharList(){
+            let req = new XMLHttpRequest();
+            req.open("GET", "http://hp-api.herokuapp.com/api/characters");
+            //cada requisição da um codigo de retorno, http 200 é que deu certo, http 404 é que não encontrou, http 500 é erro interno do servidor, http 403 é acesso negado
+            req.send(null);
+            document.getElementById("charlist").innerHTML = JSON.parse(req.responseText).map(char => `
+                <li>${char.name}</li>
+            `).join("");
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body onload="loadCharList()">
+    <ul id="charlist">
+        
+    </ul>
+</body>
+</html> -->
+
+<!-- public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
+    return ((isMorning  && isMom) || (isAsleep == false && isMorning == false) || !(isMorning && isMom && isAsleep)) ? true : false;
+  } -->
+  
