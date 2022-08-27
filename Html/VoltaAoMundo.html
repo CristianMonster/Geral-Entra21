@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volta ao Mundo</title>
+    <script>
+
+
+        
+        var controle = "volta";
+
+        let listas = {"V" : ["Venezuela", "Vietna"], "O" : ["Oma", "Ossetia"], "L" : ["Libano", "Lituania"], "T" : ["Taiwan", "Tailandia"], "A" : ["Alemanha", "Angola"]};
+        var V = ["Venezuela", "Vietna"];
+        var O = ["Oma", "Ossetia"];
+        var L = ["Libano", "Lituania"];
+        var T = ["Taiwan", "Tailandia"];
+        var A = ["Alemanha", "Angola"];
+        var contador = 0;
+        var tentativas = 0;
+
+        function informarPalavra(){
+
+            var lugar = document.getElementById("palavra").value;
+            var primeiraLetra = lugar.charAt(0).toLowerCase();
+
+            if(contador > 4){
+                contador = 0;
+            } 
+
+            if((primeiraLetra == controle.charAt(contador + 1) && contador != 4) || (primeiraLetra == "v" && contador == 4)){
+                alert("Voce pode ir para esse lugar");
+                contador++;
+                switch(primeiraLetra){
+                    case "v" : V.push(lugar); break;
+                    case "o" : O.push(lugar); break;
+                    case "l" : L.push(lugar); break;
+                    case "t" : T.push(lugar); break;
+                    case "a" : A.push(lugar); break;
+                };
+            } else {
+                alert("Você nao pode ir para esse lugar");
+                ++tentativas;
+            }
+            console.log(Object.keys(listas)[contador])
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="palavra" name="" value="">
+        <input type="submit" value="Enviar" onclick="informarPalavra()">
+    </div>
+</body>
+</html>
