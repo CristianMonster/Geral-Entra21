@@ -1,0 +1,8 @@
+<small  *ngIf="hero.alive == false">✞</small>
+<h3 style="display: inline; margin-right: 2px;" 
+    [ngStyle]="
+        {'color': (hero.alive == false) ? 'grey' : 'black',
+        'font-style': (hero.alive == false) ? 'italic' : 'normal'}">
+    {{ hero.heroName }}
+</h3>
+<small [ngStyle]="{'color': (hero.universe == 'DC') ? 'blue' : 'red'}"> ({{ hero.universe }})</small>
